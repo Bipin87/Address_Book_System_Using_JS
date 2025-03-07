@@ -1,25 +1,39 @@
-const Contact = require('../models/Contacts.js');
+const Contacts = require('../models/Contacts.js');
 
-class AddressBook{
-    // Creating an array instance as the user make a book
-    constructor(){
+class AddressBook {
+    constructor() {
         this.contacts = [];
     }
 
-    addContact = (contact)=>{
-        if(!contact instanceof Contact){
-            throw new Error(`Invalid contact ${contact}. Must be an instance of Contact`);
+    addContact(contact) {
+        if (!(contact instanceof Contacts)) {
+            throw new Error(`Invalid contact ${contact}. Must be an instance of Contact.`);
         }
-        // Add the new contact in the contact array
         this.contacts.push(contact);
     }
 
-    // Method to get the contact
-    getContact = ()=>{
-        return this.contacts;
+    findContact(firstName, lastName) {
+        return this.contacts.find(contact => contact.firstName === firstName && contact.lastName === lastName);
     }
 
+    editContact(firstName, lastName, updatedData) {
+        const contact = this.findContact(firstName, lastName);
+        if (!contact) {
+            throw new Error("Contact not found.");
+        }
 
+        Object.keys(updatedData).forEach(key => {
+            if (contact.hasOwnProperty(key)) {
+                contact[key] = updatedData[key];
+            }
+        });
+
+        return contact;
+    }
+
+    getContact() {
+        return this.contacts;
+    }
 }
 
 module.exports = AddressBook;

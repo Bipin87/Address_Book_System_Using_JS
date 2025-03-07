@@ -34,6 +34,12 @@ class Contacts {
             throw new Error(`${value} for address is not valid it must have atleast ${minLength} characters`);
         }
     }
+    
+    validateMinLength(value, fieldName, minLength) {
+        if (value.length < minLength) {
+            throw new Error(`${fieldName} must have at least ${minLength} characters.`);
+        }
+    }
 
     validateZip = (zipCode) => {
         const zipPattern = /^[0-9]{5,6}$/;
@@ -42,8 +48,8 @@ class Contacts {
         }
     }
 
-    validatePhone = (phone)=> {
-        const phonePattern = /^[0-9]{10}$/; 
+    validatePhone(phone) {
+        const phonePattern = /^[0-9]{10}$/;
         if (!phonePattern.test(phone)) {
             throw new Error("Phone number must be a valid 10-digit number.");
         }
@@ -57,4 +63,4 @@ class Contacts {
     }
 }
 
-export default Contacts;
+module.exports = Contacts; 
