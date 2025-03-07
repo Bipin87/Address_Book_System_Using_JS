@@ -1,4 +1,3 @@
-// UC2: Validate Contects Attributes
 
 // Class contact to ensure the following details from the user
 class Contacts {
