@@ -1,7 +1,7 @@
 // UC1: Ability to create address book Contacts
 
 // Class contact to ensure the following details from the user
-class Contact{
+class Contacts{
     constructor(firstName,lastName,address,city,state,zip,phoneNumber,email){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -13,3 +13,4 @@ class Contact{
         this.email = email;
     }
 }
+MediaSourceHandle.exports = Contacts;
