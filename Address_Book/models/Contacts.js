@@ -65,6 +65,9 @@ class Contacts {
             throw new Error("Invalid email format.");
         }
     }
+    toString(){
+        return `${this.firstName} ${this.lastName}, ${this.address}, ${this.city}, ${this.state}, ${this.zip}, ${this.phoneNumber}, ${this.email}`;
+    }
 }
 
 module.exports = Contacts;

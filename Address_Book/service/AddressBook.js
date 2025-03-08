@@ -117,6 +117,15 @@ class AddressBook {
             return acc;
         }, {});
     }
+    // Sort contacts alphabetically by firstName, then lastName
+    sortContactsByName() {
+        return this.contacts.sort((a, b) => {
+            if (a.firstName.toLowerCase() === b.firstName.toLowerCase()) {
+                return a.lastName.toLowerCase().localeCompare(b.lastName.toLowerCase());
+            }
+            return a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase());
+        });
+    }
 }
 
 module.exports = AddressBook;

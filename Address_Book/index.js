@@ -56,7 +56,13 @@ try {
 
     // Count persons by state
     console.log("Count of persons by State:", myAddressBook.countByState());
-      
+    
+    console.log(" All Contacts (Before Sorting):");
+    myAddressBook.getContacts().forEach(contact => console.log(contact.toString()));
+
+    // Sort contacts alphabetically before printing
+    console.log("\n Contacts Sorted by Name:");
+    myAddressBook.sortContactsByName().forEach(contact => console.log(contact.toString()));
 } catch (error) {
     console.error("Error:", error.message);
 }
