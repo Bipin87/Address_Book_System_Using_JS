@@ -17,11 +17,18 @@ try {
     );
     const contact2 = new Contact("Rahul", "Verma", "Indore", "Indore", "Madhya Pradesh", "452001", "9876543210", "rahul.verma@email.com");
     const contact3 = new Contact("Bipin", "Sahu", "New Delhi", "Delhi", "Delhi", "110001", "9123456789", "bipin.duplicate@email.com"); // Duplicate
+    const contact4 = new Contact("Amit", "Sharma", "Gandhi Nagar", "Bhopal", "Madhya Pradesh", "462016", "9123456789", "amitsharma@email.com");
+    const contact5 = new Contact("Sneha", "Patil", "Shivaji Nagar", "Pune", "Maharashtra", "411001", "9876541230", "sneha.patil@email.com");
+    const contact6 = new Contact("Anjali", "Mehta", "Baner", "Pune", "Maharashtra", "411045", "9876512345", "anjali.mehta@email.com");
+
 
     
     // Adding contact to address book
     myAddressBook.addContact(contact1);
     myAddressBook.addContact(contact2);
+    myAddressBook.addContact(contact4);
+    myAddressBook.addContact(contact5);
+    myAddressBook.addContact(contact6);
 
     console.log("All Contacts:", myAddressBook.getContacts());
 
@@ -63,6 +70,19 @@ try {
     // Sort contacts alphabetically before printing
     console.log("\n Contacts Sorted by Name:");
     myAddressBook.sortContactsByName().forEach(contact => console.log(contact.toString()));
+
+    // Sort by City
+    console.log("\n Contacts Sorted by City:");
+    myAddressBook.sortByCity().forEach(contact => console.log(contact.toString()));
+
+    // Sort by State
+    console.log("\n Contacts Sorted by State:");
+    myAddressBook.sortByState().forEach(contact => console.log(contact.toString()));
+
+    // Sort by Zip Code
+    console.log("\n Contacts Sorted by Zip Code:");
+    myAddressBook.sortByZip().forEach(contact => console.log(contact.toString()));
+
 } catch (error) {
     console.error("Error:", error.message);
 }
