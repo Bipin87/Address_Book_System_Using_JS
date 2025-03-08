@@ -44,6 +44,12 @@ try {
     // Get all unique cities and states
     console.log("All Unique Cities:", myAddressBook.getAllCities());
     console.log("All Unique States:", myAddressBook.getAllStates());
+
+    // View persons by city
+    console.log("Persons grouped by City:", myAddressBook.viewByCity());
+
+    // View persons by state
+    console.log("Persons grouped by State:", myAddressBook.viewByState());
       
 } catch (error) {
     console.error("Error:", error.message);

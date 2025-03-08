@@ -85,6 +85,23 @@ class AddressBook {
     getAllStates() {
         return [...new Set(this.contacts.map(contact => contact.state))];
     }
+    // View persons by city
+    viewByCity() {
+        return this.contacts.reduce((acc, contact) => {
+            acc[contact.city] = acc[contact.city] || [];
+            acc[contact.city].push(contact);
+            return acc;
+        }, {});
+    }
+
+    // View persons by state
+    viewByState() {
+        return this.contacts.reduce((acc, contact) => {
+            acc[contact.state] = acc[contact.state] || [];
+            acc[contact.state].push(contact);
+            return acc;
+        }, {});
+    }
 }
 
 module.exports = AddressBook;
