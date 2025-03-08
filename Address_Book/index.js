@@ -50,6 +50,12 @@ try {
 
     // View persons by state
     console.log("Persons grouped by State:", myAddressBook.viewByState());
+
+    // Count persons by city
+    console.log("Count of persons by City:", myAddressBook.countByCity());
+
+    // Count persons by state
+    console.log("Count of persons by State:", myAddressBook.countByState());
       
 } catch (error) {
     console.error("Error:", error.message);

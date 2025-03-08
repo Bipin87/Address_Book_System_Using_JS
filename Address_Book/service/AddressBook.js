@@ -102,6 +102,21 @@ class AddressBook {
             return acc;
         }, {});
     }
+    // Count contacts by city
+    countByCity() {
+        return this.contacts.reduce((acc, contact) => {
+            acc[contact.city] = (acc[contact.city] || 0) + 1;
+            return acc;
+        }, {});
+    }
+
+    // Count contacts by state
+    countByState() {
+        return this.contacts.reduce((acc, contact) => {
+            acc[contact.state] = (acc[contact.state] || 0) + 1;
+            return acc;
+        }, {});
+    }
 }
 
 module.exports = AddressBook;
