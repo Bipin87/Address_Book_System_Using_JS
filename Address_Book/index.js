@@ -31,7 +31,19 @@ try {
     // Get the all contects
     console.log("Total Number of Contacts:",myAddressBook.getContactCount());
     // Add duplicate contact
-    myAddressBook.addContact(contact3);// Throw an error
+    //myAddressBook.addContact(contact3);// Throw an error
+
+    // Searching by City
+    const searchCity = "Bhopal";
+    console.log(`Contacts in ${searchCity}:`, myAddressBook.searchByCity(searchCity));
+
+    // Searching by State
+    const searchState = "Madhya Pradesh";
+    console.log(`Contacts in ${searchState}:`, myAddressBook.searchByState(searchState));
+
+    // Get all unique cities and states
+    console.log("All Unique Cities:", myAddressBook.getAllCities());
+    console.log("All Unique States:", myAddressBook.getAllStates());
       
 } catch (error) {
     console.error("Error:", error.message);

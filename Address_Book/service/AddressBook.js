@@ -67,6 +67,24 @@ class AddressBook {
     getContacts() {
         return this.contacts;
     }
+    // Search contacts by city
+    searchByCity(city) {
+        return this.contacts.filter(contact => contact.city.toLowerCase() === city.toLowerCase());
+    }
+    // Search contacts by state
+    searchByState(state) {
+        return this.contacts.filter(contact => contact.state.toLowerCase() === state.toLowerCase());
+    }
+
+    // Get all unique cities where people live
+    getAllCities() {
+        return [...new Set(this.contacts.map(contact => contact.city))];
+    }
+
+    // Get all unique states where people live
+    getAllStates() {
+        return [...new Set(this.contacts.map(contact => contact.state))];
+    }
 }
 
 module.exports = AddressBook;
