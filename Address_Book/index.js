@@ -24,6 +24,9 @@ try {
     // Searching for a contact
     const foundContact = myAddressBook.findContact("Bipin", "Sahu");
     console.log("Found Contact:", foundContact);
+    // Get the all contects
+    console.log("Total Number of Contacts:",myAddressBook.getContactCount());
+    
       
 } catch (error) {
     console.error("Error:", error.message);
