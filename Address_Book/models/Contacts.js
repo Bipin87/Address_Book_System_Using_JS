@@ -1,5 +1,4 @@
-
-// Class contact to ensure the following details from the user
+// Class to validate and store contact details
 class Contacts {
     constructor(firstName, lastName, address, city, state, zip, phoneNumber, email) {
         this.validateName(firstName);
@@ -21,33 +20,37 @@ class Contacts {
         this.email = email;
     }
 
-
-    validateName = (name) => {
-        const regexPattern = /^[A-Z][a-zA-Z]{2,}$/
+    // Validate name (First and Last)
+    validateName(name) {
+        const regexPattern = /^[A-Z][a-zA-Z]{2,}$/; 
         if (!regexPattern.test(name)) {
-            throw new Error(`${name} is not valid please check try again!`);
+            throw new Error(`${name} is not valid. It must start with an uppercase letter and have at least 3 characters.`);
         }
     }
 
-    validateAddress = (value, minLength) => {
+    // Validate address with minimum length
+    validateAddress(value, fieldName, minLength) {
         if (value.length < minLength) {
-            throw new Error(`${value} for address is not valid it must have atleast ${minLength} characters`);
+            throw new Error(`${fieldName} must have at least ${minLength} characters.`);
         }
     }
     
+    // Validate city and state with minimum length
     validateMinLength(value, fieldName, minLength) {
         if (value.length < minLength) {
             throw new Error(`${fieldName} must have at least ${minLength} characters.`);
         }
     }
 
-    validateZip = (zipCode) => {
+    // Validate ZIP code (5-6 digits)
+    validateZip(zipCode) {
         const zipPattern = /^[0-9]{5,6}$/;
-        if(!zipPattern.test){
-            throw new Error("Zip must be of length 5 or 6 and only contains number " + zipCode);
+        if (!zipPattern.test(zipCode.toString())) {
+            throw new Error("Zip must be of length 5 or 6 and contain only numbers."+zipCode);
         }
     }
 
+    // Validate phone number (10-digit)
     validatePhone(phone) {
         const phonePattern = /^[0-9]{10}$/;
         if (!phonePattern.test(phone)) {
@@ -55,7 +58,8 @@ class Contacts {
         }
     }
 
-    validateEmail = (email)=> {
+    // Validate email format
+    validateEmail(email) {
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailPattern.test(email)) {
             throw new Error("Invalid email format.");
@@ -63,4 +67,4 @@ class Contacts {
     }
 }
 
-module.exports = Contacts; 
+module.exports = Contacts;
